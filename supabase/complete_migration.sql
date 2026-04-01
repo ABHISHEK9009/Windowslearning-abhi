@@ -164,9 +164,13 @@ CREATE TABLE IF NOT EXISTS conversations (
   is_active BOOLEAN DEFAULT TRUE,
   is_deleted BOOLEAN DEFAULT FALSE,
   deleted_at TIMESTAMP WITH TIME ZONE,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()),
-  UNIQUE(LEAST(participant_1, participant_2), GREATEST(participant_1, participant_2))
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
+
+-- Create unique index to prevent duplicate conversations between same participants
+CREATE UNIQUE INDEX IF NOT EXISTS idx_conversations_unique_participants 
+ON conversations (LEAST(participant_1, participant_2), GREATEST(participant_1, participant_2))
+WHERE is_deleted = FALSE;
 
 CREATE TABLE IF NOT EXISTS messages (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
