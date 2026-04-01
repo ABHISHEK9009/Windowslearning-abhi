@@ -39,7 +39,10 @@ const Signup = () => {
         description: "You have been successfully registered and logged in.",
       });
     } catch (err: any) {
-      const message = err.response?.data?.message || "An unexpected error occurred.";
+      console.error('Registration error:', err);
+      console.error('Error response:', err.response);
+      console.error('Error message:', err.message);
+      const message = err.response?.data?.message || err.message || "An unexpected error occurred.";
       setError(message);
       toast({
         title: "Registration Failed",

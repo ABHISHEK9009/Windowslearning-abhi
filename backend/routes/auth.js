@@ -42,13 +42,13 @@ router.post('/register', async (req, res) => {
     }
 
     // Check if user already exists
-    const { data: existingUser } = await supabase
+    const { data: existingUsers, error: checkError } = await supabase
       .from('profiles')
-      .select('*')
+      .select('id')
       .eq('email', email)
-      .single();
+      .limit(1);
 
-    if (existingUser) {
+    if (existingUsers && existingUsers.length > 0) {
       return res.status(400).json({ 
         success: false, 
         message: 'User already exists with this email' 
@@ -213,12 +213,14 @@ router.post('/google', async (req, res) => {
       });
     }
 
-    // Check if user exists
-    let { data: existingUser } = await supabase
+    // Check if user already exists  
+    const { data: existingUsers, error: checkError } = await supabase
       .from('profiles')
-      .select('*')
+      .select('id')
       .eq('email', googleUser.email)
-      .single();
+      .limit(1);
+
+    let existingUser = existingUsers && existingUsers.length > 0 ? existingUsers[0] : null;
 
     let userId;
     let profile;
