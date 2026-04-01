@@ -1,0 +1,167 @@
+/* Simple Sidebar Container */
+.admin-sidebar {
+  background: #1e293b;
+  border-right: 1px solid #374151;
+  z-index: 50;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Simple Nav Link */
+.admin-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: color 0.2s, background-color 0.2s;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 1px 0;
+  font-weight: 500;
+  font-size: 14px;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+/* Simple Nav Link Hover */
+.admin-nav-link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Simple Active State */
+.admin-nav-link.active {
+  color: white;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 3px solid hsl(var(--primary));
+}
+
+/* Focus State */
+.admin-nav-link:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Simple Card */
+.admin-glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.admin-glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Simple Input */
+.admin-sidebar input[type="text"] {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.2s ease !important;
+  border-radius: 6px !important;
+  height: 40px !important;
+  color: white !important;
+  padding: 0 1rem 0 2.5rem !important;
+}
+
+.admin-sidebar input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: hsl(var(--primary)) !important;
+  outline: none !important;
+}
+
+.admin-sidebar input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Navigation Container */
+.admin-sidebar nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+}
+
+/* Simple Badge */
+.admin-nav-link .badge {
+  background: hsl(var(--primary));
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.admin-nav-link.active .badge {
+  background: white;
+  color: hsl(var(--primary));
+}
+
+/* Simple Avatar */
+.admin-sidebar .avatar {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.admin-sidebar .avatar:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Simple Logout Button */
+.admin-sidebar button[title="Logout"] {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.admin-sidebar button[title="Logout"]:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: white;
+}
+
+/* Footer Section */
+.admin-sidebar > div:last-child {
+  padding: 16px;
+  margin-top: auto;
+}
+
+/* Icon Sizing */
+.admin-nav-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Spacing */
+.admin-sidebar .flex.items-center.gap-3 {
+  gap: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+}

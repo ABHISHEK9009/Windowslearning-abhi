@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import "./admin.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 20% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 14%;
+
+    --primary: 199 89% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 220 20% 14%;
+
+    --muted: 210 16% 93%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 160 63% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 89%;
+    --input: 214 20% 89%;
+    --ring: 199 89% 38%;
+
+    --radius: 0.625rem;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(199 89% 38%) 0%, hsl(210 70% 28%) 100%);
+    --surface-warm: 40 30% 97%;
+    --surface-cool: 210 30% 97%;
+    --success: 160 63% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 38%;
+    --mentor-card-shadow: 0 2px 16px -2px hsla(220, 20%, 14%, 0.08), 0 1px 4px -1px hsla(220, 20%, 14%, 0.04);
+    --mentor-card-shadow-hover: 0 8px 32px -4px hsla(220, 20%, 14%, 0.12), 0 4px 8px -2px hsla(220, 20%, 14%, 0.06);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 199 89% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 95%;
+    --sidebar-accent-foreground: 220 20% 14%;
+    --sidebar-border: 214 20% 89%;
+    --sidebar-ring: 199 89% 38%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 210 20% 95%;
+    --card: 220 18% 12%;
+    --card-foreground: 210 20% 95%;
+    --popover: 220 18% 12%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 18%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 220 14% 18%;
+    --muted-foreground: 215 12% 60%;
+    --accent: 160 63% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 20%;
+    --input: 220 14% 20%;
+    --ring: 199 89% 48%;
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 16% 18%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 220 14% 20%;
+    --sidebar-ring: 199 89% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    overflow-wrap: break-word;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08]; }
+  h2 { @apply text-3xl md:text-4xl font-bold leading-[1.12]; }
+  h3 { @apply text-2xl font-semibold leading-[1.2]; }
+
+  p {
+    @apply leading-relaxed;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-main {
+    @apply max-w-[1280px] mx-auto section-padding;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .cta-background {
+    background: linear-gradient(135deg, hsl(210, 70%, 12%) 0%, hsl(199, 60%, 20%) 100%);
+  }
+
+  .cta-feature-li {
+    transition-delay: 200ms;
+  }
+
+  .cta-feature-li:nth-child(2) {
+    transition-delay: 280ms;
+  }
+
+  .cta-feature-li:nth-child(3) {
+    transition-delay: 360ms;
+  }
+
+  .cta-feature-li:nth-child(4) {
+    transition-delay: 440ms;
+  }
+
+  .cta-feature-li:nth-child(5) {
+    transition-delay: 520ms;
+  }
+
+  .featured-mentors-background {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .hero-background {
+    background: linear-gradient(135deg, hsla(199, 89%, 28%, 0.92) 0%, hsla(210, 70%, 18%, 0.92) 100%);
+  }
+
+  .hero-h1 {
+    animation-delay: 100ms;
+  }
+
+  .hero-p {
+    animation-delay: 250ms;
+  }
+
+  .hero-form {
+    animation-delay: 400ms;
+  }
+
+  .hero-tags {
+    animation-delay: 550ms;
+  }
+
+  .hero-stat {
+    animation-delay: 700ms;
+  }
+
+  .hero-stat:nth-child(2) {
+    animation-delay: 780ms;
+  }
+
+  .hero-stat:nth-child(3) {
+    animation-delay: 860ms;
+  }
+
+  .hero-stat:nth-child(4) {
+    animation-delay: 940ms;
+  }
+
+  .how-it-works-hero {
+    background: linear-gradient(135deg, hsl(210, 70%, 12%) 0%, hsl(199, 60%, 20%) 100%);
+  }
+
+  .how-it-works-h1 {
+    animation-delay: 100ms;
+  }
+
+  .how-it-works-p {
+    animation-delay: 250ms;
+  }
+
+  .how-it-works-step {
+    transition-delay: 200ms;
+  }
+
+  .how-it-works-step:nth-child(2) {
+    transition-delay: 300ms;
+  }
+
+  .how-it-works-step:nth-child(3) {
+    transition-delay: 400ms;
+  }
+
+  .how-it-works-step:nth-child(4) {
+    transition-delay: 500ms;
+  }
+
+  .how-it-works-mentors-section {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .how-it-works-cta-section {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .about-hero {
+    background: linear-gradient(135deg, hsl(210, 70%, 12%) 0%, hsl(199, 60%, 20%) 100%);
+  }
+
+  .about-h1 {
+    animation-delay: 100ms;
+  }
+
+  .about-p {
+    animation-delay: 250ms;
+  }
+
+  .about-mission-vision-item {
+    transition-delay: 200ms;
+  }
+
+  .about-mission-vision-item:nth-child(2) {
+    transition-delay: 350ms;
+  }
+
+  .about-stats-section {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .about-cta-section {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .blog-background {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .login-background {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .signup-background {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .chat-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    padding: 0 10px;
+    border-radius: 9999px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
+    color: hsl(var(--primary));
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    transition: background-color 150ms ease, border-color 150ms ease, transform 80ms ease;
+  }
+
+  .chat-cta:hover {
+    background: hsl(var(--secondary));
+    border-color: hsl(var(--ring));
+  }
+
+  .chat-cta:active {
+    transform: translateY(1px);
+  }
+
+  .chat-cta svg {
+    width: 14px;
+    height: 14px;
+  }
+}
