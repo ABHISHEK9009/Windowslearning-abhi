@@ -17,6 +17,11 @@ const supabase = createClient(
 );
 
 // Routes
+const authRoutes = require('./routes/auth');
+
+// API Routes
+app.use('/auth', authRoutes);
+
 app.get('/', (req, res) => {
   res.json({ message: 'Backend server is running!' });
 });
